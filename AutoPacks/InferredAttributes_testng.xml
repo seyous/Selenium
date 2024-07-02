@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Inferred_Attributes">
+    <parameter name="testSuite" value="InferredAttributes"></parameter>
+    <parameter name="subCode" value="OCOM899"></parameter>
+    <parameter name="numOfProducts" value="1"></parameter>
+
+    <listeners>
+        <listener class-name="org.brandbank.tests.libs.TestngListenerImplementation"></listener>
+    </listeners>
+
+    <test name="Whitebox Upload Test">
+        <parameter name="module" value="apps"></parameter>
+        <parameter name="test" value="whitebox"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.apps.WhiteboxTest">
+                <methods>
+                    <include name="whiteboxUpload"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="PL Approve Test">
+        <parameter name="module" value="productlibrary"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.productlibrary.ApproveProductTest">
+                <methods>
+                    <include name="approveProduct"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Adding Attributes Endpoint Testing">
+        <parameter name="module" value="blackbox"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.inferredattributes.EndpointTest">
+                <methods>
+                    <include name="validateLicenses"></include>
+                    <include name="requestHFSSAttributes"></include>
+                    <include name="publishEndpoint"></include>
+                    <include name="foodMaestroAttributes"></include>
+                    <include name="whyteSpyderAttributes"></include>
+                    <include name="getV3ProductsContent"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite> <!-- Suite -->

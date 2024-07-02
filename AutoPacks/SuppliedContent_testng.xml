@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="SuppliedContent">
+    <parameter name="testSuite" value="SuppliedContent"></parameter>
+    <parameter name="subCode" value="OICD001"></parameter>
+    <parameter name="numOfProducts" value="2"></parameter>
+    <parameter name="productType" value="Virtual Product"></parameter>
+    <parameter name="numOfBatches" value="1"></parameter>
+    <parameter name="productsPerBatch" value="2"></parameter>
+
+    <listeners>
+        <listener class-name="org.brandbank.tests.libs.TestngListenerImplementation"></listener>
+    </listeners>
+    <test name="Opportunity_Test">
+        <parameter name="module" value="salesforce"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.salesforce.OpportunityTest">
+                <methods>
+                    <include name="createOpportunity"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="UploadFile_Test">
+        <parameter name="module" value="suppliedcontent"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.suppliedcontent.UploadFileTest">
+                <methods>
+                    <include name="uploadFiles"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Approve MOI and CGI Test">
+        <parameter name="module" value="suppliedcontent"></parameter>
+        <parameter name="username" value="user2"></parameter>
+        <parameter name="password" value="pass2"></parameter>
+        <parameter name="approvalType" value="MOI"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.suppliedcontent.ApproveDataTest">
+                <methods>
+                    <include name="approveUploadedFiles"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Approve Data Test">
+        <parameter name="module" value="suppliedcontent"></parameter>
+        <parameter name="username" value="user3"></parameter>
+        <parameter name="password" value="pass3"></parameter>
+        <parameter name="approvalType" value="Data"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.suppliedcontent.ApproveDataTest">
+                <methods>
+                    <include name="approveUploadedFiles"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="FulFillmentStatus_Test">
+        <parameter name="module" value="salesforce"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.salesforce.FulfillmentTest">
+                <methods>
+                    <include name="fulfillmentDetails"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="CGI Overview Test">
+        <parameter name="module" value="suppliedcontent"></parameter>
+        <parameter name="username" value="user2"></parameter>
+        <parameter name="password" value="pass2"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.suppliedcontent.CGIOverviewTest">
+                <methods>
+                    <include name="cgiOverview"></include>
+                    <exclude name="viewRenderImage"></exclude>
+                    <include name="deleteAndLogoutSCP"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="BookingIn Test">
+        <parameter name="module" value="apps"></parameter>
+        <parameter name="username" value="user9"></parameter>
+        <parameter name="password" value="pass9"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.apps.BookingInTest">
+                <methods>
+                    <include name="BookingInTest"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="GoogleDrive_Test">
+        <parameter name="module" value="googleDrive"></parameter>
+        <parameter name="username" value="googleDriveUser1"></parameter>
+        <parameter name="password" value="googleDrivePass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.suppliedcontent.GoogleDriveValidationTest">
+                <methods>
+                    <include name="googleDriveValidation"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite> <!-- Suite -->

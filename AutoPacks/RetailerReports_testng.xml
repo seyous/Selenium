@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="RetailerReports">
+
+
+<listeners>
+    <listener class-name="org.brandbank.tests.libs.TestngListenerImplementation"></listener>
+</listeners>
+    <test name="retailerreports">
+        <parameter name="module" value="retailerreports"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.retailerreports.RetailerReportsTest" >
+                <methods>
+                    <include name="RetailerReports"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite> <!-- Suite -->

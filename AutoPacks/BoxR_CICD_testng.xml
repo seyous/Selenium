@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="BoxR_CICD">
+    <parameter name="testSuite" value="BoxR_CICD"></parameter>
+
+    <listeners>
+        <listener class-name="org.brandbank.tests.libs.TestngListenerImplementation"></listener>
+    </listeners>
+
+   <test name="Box-R API Ingest Test">
+       <parameter name="module" value="boxrapi"></parameter>
+        <parameter name="username" value="user2"></parameter>
+        <parameter name="password" value="pass2"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.boxr.APIIngestTest">
+                <methods>
+                    <include name="authenticate"></include>
+                    <include name="ingestProduct"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Box-R Draw Clean Test">
+        <parameter name="module" value="boxr"></parameter>
+        <parameter name="username" value="user2"></parameter>
+        <parameter name="password" value="pass2"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.boxr.BoxRCICDTest">
+                <methods>
+                    <include name="performDrawAction"></include>
+                    <include name="performCleanProductAction"></include>
+                    <include name="validateProductCompleted"></include>
+                    <include name="signOut"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Box-R API Export Test">
+        <parameter name="module" value="boxrapi"></parameter>
+        <parameter name="username" value="user2"></parameter>
+        <parameter name="password" value="pass2"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.boxr.APIExportTest">
+                <methods>
+                    <include name="authenticate"></include>
+                    <include name="exportProduct"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Box-R Exported Test">
+        <parameter name="module" value="boxr"></parameter>
+        <parameter name="username" value="user2"></parameter>
+        <parameter name="password" value="pass2"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.boxr.BoxRCICDTest">
+                <methods>
+                    <include name="validateProductExported"></include>
+                    <include name="signOut"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+
+</suite> <!-- Suite -->

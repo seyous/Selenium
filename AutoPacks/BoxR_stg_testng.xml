@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="BoxR_stg">
+    <parameter name="testSuite" value="BoxR"></parameter>
+    <parameter name="subCode" value="OCOM898"></parameter>
+    <parameter name="numOfProducts" value="1"></parameter>
+    <parameter name="productType" value="Physical Product"></parameter>
+    <parameter name="numOfBatches" value="1"></parameter>
+    <parameter name="productsPerBatch" value="1"></parameter>
+
+    <listeners>
+        <listener class-name="org.brandbank.tests.libs.TestngListenerImplementation"></listener>
+    </listeners>
+
+   <test name="Ordering Test">
+        <parameter name="module" value="ordering"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.ordering.PlaceOrderTests" >
+                <methods>
+                    <include name="placeOrder"></include>
+                    <include name="signOffOrder"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="BookingIn Test">
+        <parameter name="module" value="apps"></parameter>
+        <parameter name="username" value="user12"></parameter>
+        <parameter name="password" value="pass12"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.apps.BookingInTest" >
+                <methods>
+                    <include name="BookingInTest"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Icm copy Images Test">
+        <parameter name="module" value="testharness"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <parameter name="copyPvid" value="12461238"></parameter>
+        <parameter name="tokenId" value="77025"></parameter>
+        <parameter name="SkipOutsourcingYesorNo" value="No"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.icm.IcmTest">
+                <methods>
+                    <include name="ICMCopyImages"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+   <test name="Box-R Test">
+        <parameter name="module" value="boxr"></parameter>
+        <parameter name="username" value="user2"></parameter>
+        <parameter name="password" value="pass2"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.boxr.BoxR_StgTest">
+                <methods>
+                    <include name="filterPvid"></include>
+                    <include name="performDrawAction"></include>
+                    <include name="cleanProductAction"></include>
+                    <include name="verifyProductExported"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+   <test name="Validate Segments data in DE Test ">
+        <parameter name="module" value="apps"></parameter>
+        <parameter name="username" value="user12"></parameter>
+        <parameter name="password" value="pass12"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.dataentry.BoxRDETest" >
+                <methods>
+                    <include name="dataEntryClassification"></include>
+                    <include name="validateSegmentsInDE"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Supersede batch Test ">
+        <parameter name="module" value="apps"></parameter>
+        <parameter name="username" value="user12"></parameter>
+        <parameter name="password" value="pass12"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.apps.SupersedeBatchTest" >
+                <methods>
+                    <include name="supersedeBatch"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+
+
+
+
+
+
+
+
+</suite> <!-- Suite -->

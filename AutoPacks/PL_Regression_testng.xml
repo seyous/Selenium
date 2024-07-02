@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="PL_Regression">
+    <parameter name="testSuite" value="Whitebox"></parameter>
+    <parameter name="subCode" value="OCOM899"></parameter>
+    <parameter name="numOfProducts" value="1"></parameter>
+
+    <listeners>
+        <listener class-name="org.brandbank.tests.libs.TestngListenerImplementation"></listener>
+    </listeners>
+
+    <test name="Whitebox Upload Test">
+        <parameter name="module" value="apps"></parameter>
+        <parameter name="test" value="whitebox"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.apps.WhiteboxTest">
+                <methods>
+                    <include name="whiteboxUpload"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="PL Reject Test">
+        <parameter name="module" value="productlibrary"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.productlibrary.RejectProductTest" >
+                <methods>
+                    <include name="rejectProduct"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Rejections Test">
+        <parameter name="module" value="rejections"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <parameter name="action" value="Sent Back to Approval"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.rejections.RejectionsTest" >
+                <methods>
+                    <include name="rejectionsTest"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="PL Approve Test">
+        <parameter name="module" value="productlibrary"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.productlibrary.ApproveProductTest">
+                <methods>
+                    <include name="approveProduct"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="PL Actions Test">
+        <parameter name="module" value="productlibrary"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.productlibrary.PLActionsTest" >
+                <methods>
+                    <include name="extractProductData"></include>
+                    <include name="extractDataAsPDF"></include>
+                    <include name="extractProductImages"></include>
+                    <include name="merchExtract"></include>
+                    <include name="labelImageViewer"></include>
+                    <include name="verifyDataAndObject"></include>
+                    <include name="projectListTest"></include>
+                    <include name="impersonateAndMeXTest"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="PL Delist">
+        <parameter name="module" value="productlibrary"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.productlibrary.DelistProductTest" >
+                <methods>
+                    <include name="delistProduct"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Manual Actions">
+        <parameter name="module" value="manualactions"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.manualactions.ManualActionsTest" >
+                <methods>
+                    <include name="manualActions"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite> <!-- Suite -->

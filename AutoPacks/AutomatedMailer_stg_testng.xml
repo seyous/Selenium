@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="AutomatedMailer_stg">
+    <parameter name="testSuite" value="Whitebox"></parameter>
+    <parameter name="subCode" value="OCOM899"></parameter>
+    <parameter name="numOfProducts" value="1"></parameter>
+
+    <listeners>
+        <listener class-name="org.brandbank.tests.libs.TestngListenerImplementation"></listener>
+    </listeners>
+   <test name="Whitebox Upload Test">
+        <parameter name="module" value="apps"></parameter>
+        <parameter name="test" value="whitebox"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.apps.WhiteboxTest">
+                <methods>
+                    <include name="whiteboxUpload"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="PL Approve Test">
+        <parameter name="module" value="productlibrary"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.productlibrary.ApproveProductTest">
+                <methods>
+                    <include name="approveProduct"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Set Interval Test">
+        <parameter name="module" value="apps"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.apps.AMMailerTest" >
+                <methods>
+                    <include name="setIntervalApps"></include>
+                    <exclude name="disableMailerApps"></exclude>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Select Template Test">
+        <parameter name="module" value="productlibrary"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <parameter name="uploadAsset" value="no"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.connect.ConnectRetailerTest" >
+                <methods>
+                    <include name="selectTemplate"></include>
+                    <include name="awaitingContentCheck"></include>
+                    <include name="uploadAssetToTemplate"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Validate Mail Test">
+        <parameter name="module" value="apps"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.automatedMailer.ValidateMailInStgTest" >
+                <methods>
+                    <include name="searchMail"></include>
+                    <include name="validateMail"></include>
+                    <include name="logOutOfApps"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="DisableMailerApps">
+        <parameter name="module" value="apps"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.apps.AMMailerTest" >
+                <methods>
+                    <exclude name="setIntervalApps"></exclude>
+                    <include name="disableMailerApps"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+
+
+
+</suite> <!-- Suite -->

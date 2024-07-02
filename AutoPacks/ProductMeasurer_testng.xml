@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ProductMeasurer">
+    <parameter name="testSuite" value="ProductMeasurer"></parameter>
+    <parameter name="subCode" value="OCOM898"></parameter>
+    <parameter name="numOfProducts" value="1"></parameter>
+    <parameter name="productType" value="Physical Product"></parameter>
+    <parameter name="numOfBatches" value="1"></parameter>
+    <parameter name="productsPerBatch" value="1"></parameter>
+
+    <listeners>
+        <listener class-name="org.brandbank.tests.libs.TestngListenerImplementation"></listener>
+    </listeners>
+
+   <test name="Ordering Test">
+        <parameter name="module" value="ordering"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+
+            <class name="org.brandbank.tests.ordering.PlaceOrderTests" >
+                <methods>
+                    <include name="placeOrder"></include>
+                    <include name="signOffOrder"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="BookingIn Test">
+        <parameter name="module" value="apps"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.apps.BookingInTest" >
+                <methods>
+                    <include name="BookingInTest"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Product Measurer Test">
+        <parameter name="module" value="testharness"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.productmeasurer.ProductMeasurerTest">
+                <methods>
+                    <include name="addMeasures"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Icm copy Images Test">
+        <parameter name="module" value="testharness"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <parameter name="copyPvid" value="12235524"></parameter>
+        <parameter name="tokenId" value="77025"></parameter>
+        <parameter name="SkipOutsourcingYesorNo" value="No"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.icm.IcmTest">
+                <methods>
+                    <include name="ICMCopyImages"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+   <test name="Validate Weights and Segments data in DE Test ">
+        <parameter name="module" value="apps"></parameter>
+        <parameter name="username" value="user12"></parameter>
+        <parameter name="password" value="pass12"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.dataentry.ProductMeasurerDETest" >
+                <methods>
+                    <include name="abortFromBoxR"></include>
+                    <include name="dataEntryClassification"></include>
+                    <include name="validateMeasuresInDE"></include>
+                    <include name="supersedeBatch"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite> <!-- Suite -->

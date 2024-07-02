@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="EvolveCertifiedProducts">
+    <parameter name="testSuite" value="Evolve"></parameter>
+    <parameter name="subCode" value="AEVO027"></parameter>
+    <parameter name="numOfProducts" value="4"></parameter>
+
+
+    <listeners>
+        <listener class-name="org.brandbank.tests.libs.TestngListenerImplementation"></listener>
+    </listeners>
+
+    <test name="Validating getUnsentPost xml queue ">
+        <parameter name="module" value="blackbox"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.supplierportal.ValidatingXmlQueueTest">
+                <methods>
+                    <include name="validatingXmlQueue"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Whitebox Upload Test">
+        <parameter name="module" value="apps"></parameter>
+        <parameter name="test" value="whitebox"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.apps.WhiteboxTest">
+                <methods>
+                    <include name="whiteboxUpload"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="PL ApproveReject Test for RSC product">
+        <parameter name="module" value="productlibrary"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <parameter name="eanRow" value="1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.productlibrary.evolveProductTest">
+                <methods>
+                    <include name="checkApproveRejectProductStatus"></include>
+                    <include name="logOut"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="PL DataValidation Test">
+        <parameter name="module" value="productlibrary"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <parameter name="numOfProducts" value="1"></parameter>
+        <parameter name="tabToSelect" value="Awaitingapproval"></parameter>
+        <parameter name="category" value=""></parameter>
+        <classes>
+            <class name="org.brandbank.tests.productlibrary.DataValidationTest">
+                <methods>
+                    <include name="validateDataInPL"></include>
+                    <include name="logOut"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="PL Adding RSC Attributes Test">
+        <parameter name="module" value="productlibrary"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <parameter name="eanRow" value="1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.productlibrary.RSCAttributesTest">
+                <methods>
+                    <include name="addRSCAttributes"></include>
+                    <include name="logOut"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="PL ApproveReject Test for Approval product">
+        <parameter name="module" value="productlibrary"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <parameter name="eanRow" value="2"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.productlibrary.evolveProductTest">
+                <methods>
+                    <include name="checkApproveRejectProductStatus"></include>
+                    <include name="logOut"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Approval Product Test">
+        <parameter name="module" value="supplierportal"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <parameter name="eanRow" value="2"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.supplierportal.CertifiedApprovalTest">
+                <methods>
+                    <include name="validateData"></include>
+                    <include name="approveProduct"></include>
+                    <include name="finalApprove"></include>
+                    <include name="liveStatusCheck"></include>
+                    <include name="logOut"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="PL Live Status check">
+        <parameter name="module" value="productlibrary"></parameter>
+        <parameter name="PLTab" value="Live"></parameter>
+        <parameter name="verifyEanPresentYesOrNo" value=""></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <parameter name="eanRow" value="2"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.productlibrary.ProductStatusTest">
+                <methods>
+                    <include name="verifyProductStatusInPLTab"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="PL ApproveReject Test for RSC and Topup product">
+        <parameter name="module" value="productlibrary"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <parameter name="eanRow" value="3"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.productlibrary.evolveProductTest">
+                <methods>
+                    <include name="checkApproveRejectProductStatus"></include>
+                    <include name="logOut"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Adding Retailer Specific Content and TopUp Test">
+        <parameter name="module" value="supplierportal"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <parameter name="eanRow" value="3"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.supplierportal.RSCAndTopUpTest">
+                <methods>
+                    <include name="approveRSCProduct"></include>
+                    <include name="addRSCAndTopUpContent"></include>
+                    <include name="logOut"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="PL ApproveReject Test for Rejection product">
+        <parameter name="module" value="productlibrary"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <parameter name="eanRow" value="4"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.productlibrary.evolveProductTest">
+                <methods>
+                    <include name="checkApproveRejectProductStatus"></include>
+                    <include name="logOut"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Rejection product Test">
+        <parameter name="module" value="supplierportal"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <parameter name="eanRow" value="4"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.supplierportal.CertifiedRejectionTest">
+                <methods>
+                    <include name="rejectProduct"></include>
+                    <include name="rejectionStatusCheck"></include>
+                    <include name="logOut"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="PL Outstanding Rejected Status Check">
+        <parameter name="module" value="productlibrary"></parameter>
+        <parameter name="PLTab" value="Outstandingrejected"></parameter>
+        <parameter name="verifyEanPresentYesOrNo" value=""></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <parameter name="eanRow" value="4"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.productlibrary.ProductStatusTest">
+                <methods>
+                    <include name="verifyProductStatusInPLTab"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Get unsent products Api test">
+        <parameter name="module" value="blackbox"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <parameter name="jsonExtractName" value="Automation_GetUnsent_JSON_DO_NOT_USE"></parameter>
+        <parameter name="numOfProducts" value="3"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.supplierportal.ApiTest">
+                <methods>
+                    <include name="getUnsentPostRequestXml"></include>
+                    <include name="deleteProductsQueueRequestJson"></include>
+                    <include name="runExtractAndDownloadJson"></include>
+                    <include name="validatePVIDFromJson"></include>
+                    <include name="getUnsentGetRequestJson"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite> <!-- Suite -->

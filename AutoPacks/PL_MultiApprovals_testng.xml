@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="PL_MultiApprovals">
+    <parameter name="testSuite" value="Whitebox"></parameter>
+    <parameter name="subCode" value="OCOM900"></parameter>
+    <parameter name="numOfProducts" value="1"></parameter>
+
+    <listeners>
+        <listener class-name="org.brandbank.tests.libs.TestngListenerImplementation"></listener>
+    </listeners>
+
+    <test name="Whitebox Upload Test">
+        <parameter name="module" value="apps"></parameter>
+        <parameter name="test" value="whitebox"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.apps.WhiteboxTest">
+                <methods>
+                    <include name="whiteboxUpload"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="PL Medical Approval Test">
+        <parameter name="module" value="productlibrary"></parameter>
+        <parameter name="username" value="user5"></parameter>
+        <parameter name="password" value="pass5"></parameter>
+        <parameter name="approvalType" value="Medical"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.productlibrary.MultiApprovalsTest">
+                <methods>
+                    <include name="approveMulti"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="PL Artwork Approval Test">
+        <parameter name="module" value="productlibrary"></parameter>
+        <parameter name="username" value="user6"></parameter>
+        <parameter name="password" value="pass6"></parameter>
+        <parameter name="approvalType" value="Artwork"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.productlibrary.MultiApprovalsTest">
+                <methods>
+                    <include name="approveMulti"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="PL Regulatory Approval Test">
+        <parameter name="module" value="productlibrary"></parameter>
+        <parameter name="username" value="user7"></parameter>
+        <parameter name="password" value="pass7"></parameter>
+        <parameter name="approvalType" value="Regulatory"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.productlibrary.MultiApprovalsTest">
+                <methods>
+                    <include name="approveMulti"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite> <!-- Suite -->

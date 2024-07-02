@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Connect">
+    <parameter name="testSuite" value="Whitebox"></parameter>
+    <parameter name="subCode" value="OCOM899"></parameter>
+    <parameter name="numOfProducts" value="1"></parameter>
+
+    <listeners>
+        <listener class-name="org.brandbank.tests.libs.TestngListenerImplementation"></listener>
+    </listeners>
+   <test name="Whitebox Upload Test">
+        <parameter name="module" value="apps"></parameter>
+        <parameter name="test" value="whitebox"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.apps.WhiteboxTest">
+                <methods>
+                    <include name="whiteboxUpload"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="PL Approve Test">
+        <parameter name="module" value="productlibrary"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.productlibrary.ApproveProductTest">
+                <methods>
+                    <include name="approveProduct"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Upload Asset Test">
+        <parameter name="module" value="productlibrary"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <parameter name="uploadAsset" value="yes"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.connect.ConnectRetailerTest" >
+                <methods>
+                    <include name="selectTemplate"></include>
+                    <include name="awaitingContentCheck"></include>
+                    <include name="uploadAssetToTemplate"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Supplier Test">
+        <parameter name="module" value="productlibrary"></parameter>
+        <parameter name="username" value="user2"></parameter>
+        <parameter name="password" value="pass2"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.connect.ConnectSupplierTest" >
+                <methods>
+                    <include name="publishContent"></include>
+                    <include name="expiringTemplate"></include>
+                    <include name="unPublishContent"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+
+
+</suite> <!-- Suite -->

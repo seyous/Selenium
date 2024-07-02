@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="EXTAssetStore_stg">
+    <parameter name="testSuite" value="EXTAssetStore"></parameter>
+    <parameter name="subCode" value="OCOM898"></parameter>
+    <parameter name="numOfProducts" value="1"></parameter>
+    <parameter name="productType" value="Supplied Content"></parameter>
+    <parameter name="numOfBatches" value="1"></parameter>
+    <parameter name="productsPerBatch" value="1"></parameter>
+
+    <listeners>
+        <listener class-name="org.brandbank.tests.libs.TestngListenerImplementation"></listener>
+    </listeners>
+
+    <test name="Ordering Test">
+        <parameter name="module" value="ordering"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.ordering.PlaceOrderTests" >
+                <methods>
+                    <include name="placeOrder"></include>
+                    <include name="signOffOrder"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="BookingIn Test">
+        <parameter name="module" value="apps"></parameter>
+        <parameter name="username" value="user12"></parameter>
+        <parameter name="password" value="pass12"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.apps.BookingInTest" >
+                <methods>
+                    <include name="BookingInTest"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="EXT Asset Store Images Test">
+        <parameter name="module" value="apps"></parameter>
+        <parameter name="username" value="user12"></parameter>
+        <parameter name="password" value="pass12"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.apps.EXTAssetStoreTest" >
+                <methods>
+                    <include name="searchBatchAndAssign"></include>
+                    <include name="attachImages"></include>
+                    <include name="completeTask"></include>
+                    <include name="logOut"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Global Asset Store Images Test">
+        <parameter name="module" value="apps"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.apps.PPVEXTAssetStoreTest" >
+                <methods>
+                    <include name="checkImages"></include>
+                    <include name="supersedeBatch"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite> <!-- Suite -->

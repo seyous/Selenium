@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="VIRTIM">
+    <parameter name="testSuite" value="VIRTIM"></parameter>
+    <parameter name="subCode" value="OCOM898"></parameter>
+    <parameter name="numOfProducts" value="2"></parameter>
+    <parameter name="productType" value="Supplied Content"></parameter>
+    <parameter name="numOfBatches" value="1"></parameter>
+    <parameter name="productsPerBatch" value="2"></parameter>
+
+    <listeners>
+        <listener class-name="org.brandbank.tests.libs.TestngListenerImplementation"></listener>
+    </listeners>
+
+    <test name="Ordering Test">
+        <parameter name="module" value="ordering"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.ordering.PlaceOrderTests" >
+                <methods>
+                    <include name="placeOrder"></include>
+                    <include name="signOffOrder"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="BookingIn Test">
+        <parameter name="module" value="apps"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.apps.BookingInTest" >
+                <methods>
+                    <include name="BookingInTest"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Virtual Imaging Test">
+        <parameter name="module" value="apps"></parameter>
+        <parameter name="username" value="user2"></parameter>
+        <parameter name="password" value="pass2"></parameter>
+        <parameter name="copyPvid" value="12235524"></parameter>
+        <parameter name="imagesToExclude" value="None"></parameter>
+        <parameter name="eanRow" value="2"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.virtualimaging.VirtualImagingTest" >
+                <methods>
+                    <include name="searchProductandAssign"></include>
+                    <include name="attachImages"></include>
+                    <include name="copyImages"></include>
+                    <include name="completeTask"></include>
+                    <include name="PPV"></include>
+                    <include name="PPVM"></include>
+                    <include name="abortFromBoxR"></include>
+                    <include name="logOut"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="DE Classification Test">
+        <parameter name="module" value="apps"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.dataentry.CopyFromPvid_DEClassificationTest" >
+                <methods>
+                    <include name="DataEntryClassification"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="DE QA Test">
+        <parameter name="module" value="apps"></parameter>
+        <parameter name="username" value="user11"></parameter>
+        <parameter name="password" value="pass11"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.dataentry.CopyFrom_DEQATest" >
+                <methods>
+                    <include name="DataEntryQA"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="DE QC Test">
+        <parameter name="module" value="apps"></parameter>
+        <parameter name="username" value="user11"></parameter>
+        <parameter name="password" value="pass11"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.dataentry.CopyFrom_DEQCTest" >
+                <methods>
+                    <include name="DataEntryQC"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="DE AA Test">
+        <parameter name="module" value="apps"></parameter>
+        <parameter name="username" value="user11"></parameter>
+        <parameter name="password" value="pass11"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.dataentry.CopyFrom_DEAATest" >
+                <methods>
+                    <include name="DataEntryAA"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="PL Approve Test">
+        <parameter name="module" value="productlibrary"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.productlibrary.ApproveProductTest">
+                <methods>
+                    <include name="approveProduct"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+
+</suite> <!-- Suite -->

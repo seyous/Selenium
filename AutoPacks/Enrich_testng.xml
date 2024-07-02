@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Enrich">
+    <parameter name="testSuite" value="Enrich"></parameter>
+
+    <listeners>
+        <listener class-name="org.brandbank.tests.libs.TestngListenerImplementation"></listener>
+    </listeners>
+     <test name="Enrich Test">
+         <parameter name="module" value="productlibrary"></parameter>
+         <parameter name="username" value="user1"></parameter>
+         <parameter name="password" value="pass1"></parameter>
+         <parameter name="EAN" value="5720230804012"></parameter>
+       <classes>
+           <class name="org.brandbank.tests.enrich.EnrichTest" >
+               <methods>
+                   <!--below are public asset test methods-->
+                   <include name="addPublicAsset"></include>
+                   <include name="verifyPublicAsset"></include>
+                   <include name="assetGalleryToView"></include>
+                   <include name="downloadAsset"></include>
+                   <include name="editAsset"></include>
+                   <include name="updateAsset"></include>
+                   <include name="rejectLink"></include>
+                   <include name="publishLink"></include>
+                   <include name="deleteAsset"></include>
+                   <include name="deleteAllPublicAssets"></include>
+                   <!--below are private asset test methods-->
+                   <include name="addPrivateAsset"></include>
+                   <include name="verifyPrivateAsset"></include>
+                   <include name="createSmartFolder"></include>
+                   <include name="verifySmartFolder"></include>
+                   <include name="changedToPublicAsset"></include>
+                   <include name="createPublicLink"></include>
+                   <include name="deleteSmartFolder"></include>
+                 <!--"below are internal asset test methods-->
+                   <include name="addInternalAsset"></include>
+                   <include name="verifyInternalAsset"></include>
+                   <include name="createFolder"></include>
+                   <include name="addAssetToFolder"></include>
+                   <include name="verifyAssetAddedToFolder"></include>
+               </methods>
+           </class>
+       </classes>
+   </test>
+
+</suite> <!-- Suite -->

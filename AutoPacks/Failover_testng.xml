@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failover">
+    <parameter name="testSuite" value="Failover" />
+    <listeners>
+        <listener class-name="org.brandbank.tests.libs.TestngListenerImplementation" />
+        <listener class-name="org.brandbank.tests.libs.RetryListenerImplementation" />
+    </listeners>
+
+    <test name="Log in Apps Application" enabled="true">
+        <parameter name="module" value="apps" />
+        <parameter name="username" value="user2" />
+        <parameter name="password" value="pass2" />
+        <classes>
+            <class name="org.brandbank.tests.FailoverTestSetup" >
+                <methods>
+                    <include name="loginApplication"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Log in blackbox Application" enabled="true">
+        <parameter name="module" value="blackbox"/>
+        <parameter name="username" value="user4"/>
+        <parameter name="password" value="pass4"/>
+        <classes>
+            <class name="org.brandbank.tests.FailoverTestSetup" >
+                <methods>
+                    <include name="loginApplication"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Log in boxr Application" enabled="false">
+        <parameter name="module" value="boxr"/>
+        <parameter name="username" value="user2"/>
+        <parameter name="password" value="pass2"/>
+        <classes>
+            <class name="org.brandbank.tests.FailoverTestSetup" >
+                <methods>
+                    <include name="loginApplication"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Log in dataworkflow Application" enabled="true">
+        <parameter name="module" value="dataworkflow"/>
+        <parameter name="username" value="user2"/>
+        <parameter name="password" value="pass2"/>
+        <classes>
+            <class name="org.brandbank.tests.FailoverTestSetup" >
+                <methods>
+                    <include name="loginApplication"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Log in manualactions Application" enabled="true">
+        <parameter name="module" value="manualactions" />
+        <parameter name="username" value="user3" />
+        <parameter name="password" value="pass3" />
+        <classes>
+            <class name="org.brandbank.tests.FailoverTestSetup" >
+                <methods>
+                    <include name="loginApplication" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Log in productlibrary Application" enabled="true">
+        <parameter name="module" value="productlibrary" />
+        <parameter name="username" value="user4" />
+        <parameter name="password" value="pass4" />
+        <classes>
+            <class name="org.brandbank.tests.FailoverTestSetup" >
+                <methods>
+                    <include name="loginApplication" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Log in rejections Application" enabled="true">
+        <parameter name="module" value="rejections" />
+        <parameter name="username" value="user2" />
+        <parameter name="password" value="pass2" />
+        <classes>
+            <class name="org.brandbank.tests.FailoverTestSetup" >
+                <methods>
+                    <include name="loginApplication" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Log in retailerreports Application" enabled="true">
+        <parameter name="module" value="retailerreports" />
+        <parameter name="username" value="user3" />
+        <parameter name="password" value="pass3" />
+        <classes>
+            <class name="org.brandbank.tests.FailoverTestSetup" >
+                <methods>
+                    <include name="loginApplication" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Log in salesforce Application" enabled="true" >
+        <parameter name="module" value="salesforce" />
+        <parameter name="username" value="user1" />
+        <parameter name="password" value="pass1" />
+        <classes>
+            <class name="org.brandbank.tests.FailoverTestSetup" >
+                <methods>
+                    <include name="loginApplication" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Log in supplierportal Application" enabled="false">
+        <parameter name="module" value="supplierportal" />
+        <parameter name="username" value="user1" />
+        <parameter name="password" value="pass1" />
+        <classes>
+            <class name="org.brandbank.tests.FailoverTestSetup" >
+                <methods>
+                    <include name="loginApplication" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Log in testharness Application" enabled="true">
+        <parameter name="module" value="testharness" />
+        <parameter name="username" value="user1" />
+        <parameter name="password" value="pass1" />
+        <classes>
+            <class name="org.brandbank.tests.FailoverTestSetup" >
+                <methods>
+                    <include name="loginApplication" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Log in Ordering Application" enabled="true">
+        <parameter name="module" value="ordering" />
+        <parameter name="username" value="user1" />
+        <parameter name="password" value="pass1" />
+        <classes>
+            <class name="org.brandbank.tests.FailoverTestSetup" >
+                <methods>
+                    <include name="loginApplication" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Log in crm Application" enabled="true">
+        <parameter name="module" value="crm" />
+        <parameter name="username" value="user1" />
+        <parameter name="password" value="pass1" />
+        <classes>
+            <class name="org.brandbank.tests.FailoverTestSetup" >
+                <methods>
+                    <include name="loginApplication" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Image Shot Console Test" enabled="false">
+        <classes>
+            <class name="org.brandbank.tests.imageshotconsole.ImageShotConsoleTest" >
+                <methods>
+                    <include name="launchImageShot"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

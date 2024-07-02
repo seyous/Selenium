@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Workflow">
+    <parameter name="testSuite" value="Workflow"></parameter>
+    <parameter name="subCode" value="OCOM899"></parameter>
+    <parameter name="numOfProducts" value="1"></parameter>
+    <parameter name="productType" value="Physical Product"></parameter>
+    <parameter name="numOfBatches" value="1"></parameter>
+    <parameter name="productsPerBatch" value="1"></parameter>
+
+    <listeners>
+        <listener class-name="org.brandbank.tests.libs.TestngListenerImplementation"></listener>
+    </listeners>
+
+    <test name="Ordering Test">
+        <parameter name="module" value="ordering"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.ordering.PlaceOrderTests" >
+                <methods>
+                    <include name="placeOrder"></include>
+                    <include name="signOffOrder"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="BookingIn Test">
+        <parameter name="module" value="apps"></parameter>
+        <parameter name="username" value="user9"></parameter>
+        <parameter name="password" value="pass9"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.apps.BookingInTest" >
+                <methods>
+                    <include name="BookingInTest"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="TaskList Test">
+        <parameter name="module" value="apps"></parameter>
+        <parameter name="username" value="user9"></parameter>
+        <parameter name="password" value="pass9"></parameter>
+        <parameter name="taskListName" value="Label Imaging Queue"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.apps.CheckTasklistTest" >
+                <methods>
+                    <include name="checkTaskList"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="ICM Copy Images Test">
+        <parameter name="module" value="testharness"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <parameter name="copyPvid" value="12235524"></parameter>
+        <parameter name="tokenId" value="77025"></parameter>
+        <parameter name="SkipOutsourcingYesorNo" value="No"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.icm.IcmTest">
+                <methods>
+                    <include name="ICMCopyImages"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Imaging Workflow Test">
+        <parameter name="module" value="apps"></parameter>
+        <parameter name="username" value="user9"></parameter>
+        <parameter name="password" value="pass9"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.apps.ImagingWorkflowTest" >
+                <methods>
+                    <include name="exitStudioQA"></include>
+                    <include name="marketingOutsourcing"></include>
+                    <include name="merchQC1"></include>
+                    <include name="merchOutsourcing"></include>
+                    <include name="postOutsourceQA"></include>
+                    <include name="postProductionEssential"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Post Production QA Essential Test">
+        <parameter name="module" value="apps"></parameter>
+        <parameter name="username" value="user4"></parameter>
+        <parameter name="password" value="pass4"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.apps.PostProdQAEssentialTest" >
+                <methods>
+                    <include name="postProductionQAEssential"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="dataworkflow">
+        <parameter name="module" value="dataworkflow"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.dataworkflow.DataWorkflowTest" >
+                <methods>
+                    <include name="DataWorkflow"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="DE Classification Test">
+        <parameter name="module" value="apps"></parameter>
+        <parameter name="username" value="user11"></parameter>
+        <parameter name="password" value="pass11"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.dataentry.CopyFromPvid_DEClassificationTest" >
+                <methods>
+                    <include name="DataEntryClassification"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="DE QA Test">
+        <parameter name="module" value="apps"></parameter>
+        <parameter name="username" value="user9"></parameter>
+        <parameter name="password" value="pass9"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.dataentry.CopyFrom_DEQATest" >
+                <methods>
+                    <include name="DataEntryQA"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="DE AA Test">
+        <parameter name="module" value="apps"></parameter>
+        <parameter name="username" value="user9"></parameter>
+        <parameter name="password" value="pass9"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.dataentry.CopyFrom_DEAATest" >
+                <methods>
+                    <include name="DataEntryAA"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="PL Approve Test">
+        <parameter name="module" value="productlibrary"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.productlibrary.ApproveProductTest">
+                <methods>
+                    <include name="approveProduct"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite> <!-- Suite -->

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="PIMCore_stg">
+    <parameter name="testSuite" value="PIMCore"></parameter>
+    <parameter name="subCode" value="OIMA005"></parameter>
+    <parameter name="numOfProducts" value="1"></parameter>
+
+    <listeners>
+        <listener class-name="org.brandbank.tests.libs.TestngListenerImplementation"></listener>
+    </listeners>
+
+    <test name="PIMCore New Upload Test">
+        <parameter name="module" value="apps"></parameter>
+        <parameter name="test" value="pimcore"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.pimcore.PIMCoreM2MTest">
+                <methods>
+                    <include name="pimcoreM2MNewImport"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="PL New Test">
+        <parameter name="module" value="productlibrary"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.productlibrary.PIMCorePLTest">
+                <methods>
+                    <include name="verifyProductStatus"></include>
+                    <include name="verifyObject"></include>
+                    <include name="verifyLabelObject"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Blackbox Test">
+        <parameter name="module" value="blackbox"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.blackbox.DownloadXMLTest">
+                <methods>
+                    <include name="downloadXML"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="PIMCore Delist Upload Test">
+        <parameter name="module" value="apps"></parameter>
+        <parameter name="test" value="pimcore"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.pimcore.PIMCoreDelistTest">
+                <methods>
+                    <include name="editDelistXml"></include>
+                    <include name="pimcoreM2MDelistImport"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="PL Delist Test">
+        <parameter name="module" value="productlibrary"></parameter>
+        <parameter name="PLTab" value="Live"></parameter>
+        <parameter name="verifyEanPresentYesOrNo" value="no"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <parameter name="eanRow" value="1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.productlibrary.ProductStatusTest">
+                <methods>
+                    <include name="verifyProductStatusInPLTab"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite> <!-- Suite -->

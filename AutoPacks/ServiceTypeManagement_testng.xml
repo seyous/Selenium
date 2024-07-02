@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="ServiceTypeManagement">
+    <parameter name="testSuite" value="ServiceTypeManagement"></parameter>
+
+    <listeners>
+        <listener class-name="org.brandbank.tests.libs.TestngListenerImplementation"></listener>
+    </listeners>
+
+    <test name="Service Type Management Test - Edit with User A">
+        <parameter name="module" value="apps"></parameter>
+        <parameter name="username" value="user1"></parameter>
+        <parameter name="password" value="pass1"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.apps.ServiceTypeManagementTest">
+                <methods>
+                    <include name="editServiceType"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="Service Type Management Test - Edit with User B">
+        <parameter name="module" value="apps"></parameter>
+        <parameter name="username" value="user2"></parameter>
+        <parameter name="password" value="pass2"></parameter>
+        <classes>
+            <class name="org.brandbank.tests.apps.ServiceTypeManagementTest">
+                <methods>
+                    <include name="editServiceType"></include>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite> <!-- Suite -->
